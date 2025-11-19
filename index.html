@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="de">
+ <head>
+  <!-- Grundlegende Seiteneinstellungen -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orangelift – Möbelaufzug mieten, Umzüge & Entrümpelung in Deutschland</title>
+  <meta name="description" content="Orangelift – Ihr Spezialist für Möbelaufzüge, professionelle Umzüge und Entrümpelungen. Schnelle Termine, faire Preise und über 5 Jahre Erfahrung. Jetzt Möbelaufzug mieten oder Umzug anfragen.">
+
+  <!-- Element SDK (Editor/Builder, der diese Seite wohl einbettet) -->
+  <script src="/_sdk/element_sdk.js"></script>
+
+  <!-- Tailwind CSS Framework (für Layout & Design-Klassen) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Eigene zusätzliche CSS-Styles -->
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        /* Hintergrundverlauf für den Hero-Bereich oben */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        
+        /* 3D-Karten-Effekt (bei Hover kippt die Karte leicht) */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg) translateY(-10px);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Pulsierender Glow-Effekt (wird u.a. beim Floating-WhatsApp-Button genutzt) */
+        .pulse-animation {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(249, 115, 22, 0.6);
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Fixierter WhatsApp-Button unten rechts */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+        
+        /* Kleine „Hüpf“-Animation für den Floating-Button */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Bunter Rahmen (z.B. ums Logo) */
+        .gradient-border {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            padding: 2px;
+            border-radius: 1rem;
+        }
+        
+        .gradient-border-content {
+            background: white;
+            border-radius: calc(1rem - 2px);
+        }
+        
+        /* Hintergrundverlauf für den Services-Bereich */
+        .service-grid {
+            background: linear-gradient(135deg, #fef3c7, #fed7aa, #fecaca);
+        }
+        
+        /* Einheitliche Zahlen-Darstellung (Monospace) */
+        .stats-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* Karten-Stil für Kontakt-Vorteile und Kontaktboxen */
+        .contact-card {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        /* Standard-WhatsApp-Button-Verlauf (Grün) */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128C7E, #075E54);
+        }
+    </style>
+
+  <!-- Browser-Animationen für Seitenwechsel -->
+  <style>@view-transition { navigation: auto; }</style>
+
+  <!-- Data SDK (wahrscheinlich vom gleichen System wie element_sdk) -->
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+
+ <body class="min-h-full bg-gray-50">
+  <!-- WhatsApp Floating Button (rechts unten, immer sichtbar) -->
+  <div class="whatsapp-float">
+    <button id="whatsapp-float-btn" class="whatsapp-btn text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 pulse-animation">
+      <!-- WhatsApp Icon (SVG) -->
+      <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation (oben fixiert) -->
+  <nav class="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-gray-200">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+     <!-- Logo + Firmenname -->
+     <div class="flex items-center space-x-4">
+      <div class="gradient-border">
+       <div class="gradient-border-content w-14 h-14 flex items-center justify-center">
+        <!-- Logo-Icon -->
+        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+        </svg>
+       </div>
+      </div>
+      <div>
+       <!-- Firmenname (wird per JS aus defaultConfig überschrieben) -->
+       <h1 id="company-name" class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">Orangelift</h1>
+       <p class="text-xs text-gray-500 font-medium">Möbelaufzug-Profis</p>
+      </div>
+     </div>
+
+     <!-- Navigation auf Desktop (links: Links, rechts: Buttons) -->
+     <div class="hidden lg:flex items-center space-x-8">
+      <!-- Scroll-Links zu Sektionen auf der Seite -->
+      <a href="#services" class="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-300">Services</a>
+      <a href="#benefits" class="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-300">Vorteile</a>
+      <a href="#contact" class="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-300">Kontakt</a>
+
+      <div class="flex items-center space-x-3">
+        <!-- WhatsApp Button in der Navigation -->
+        <button id="nav-whatsapp-btn" class="whatsapp-btn text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center space-x-2">
+          <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+          </svg>
+          <span>WhatsApp</span>
+        </button>
+
+        <!-- Anruf-Button -->
+        <button
+        id="nav-call-btn"
+        class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg">
+        Anrufen
+        </button>
+      </div>
+     </div>
+
+     <!-- Mobile Menü Button (Burger-Icon) -->
+     <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+     </button>
+    </div>
+   </div>
+
+   <!-- Mobile Menü (wird per JS ein-/ausgeblendet) -->
+   <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-200">
+    <div class="px-4 py-4 space-y-3">
+      <!-- Mobile-Links zu den Sektionen -->
+      <a href="#services" class="block py-2 text-gray-700 hover:text-orange-600 font-medium">Services</a>
+      <a href="#benefits" class="block py-2 text-gray-700 hover:text-orange-600 font-medium">Vorteile</a>
+      <a href="#contact" class="block py-2 text-gray-700 hover:text-orange-600 font-medium">Kontakt</a>
+
+      <!-- WhatsApp Button im Mobile-Menü -->
+      <button id="mobile-whatsapp-btn" class="w-full whatsapp-btn text-white py-3 rounded-lg font-semibold flex items-center justify-center space-x-2">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+        </svg>
+        <span>WhatsApp</span>
+      </button>
+
+      <!-- Anrufen-Button im Mobile-Menü -->
+      <button
+      id="mobile-call-btn"
+      class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 rounded-lg font-semibold">
+      Anrufen
+    </button>
+
+    </div>
+   </div>
+  </nav>
+
+  <!-- Hero Section (großer Bereich oben mit Claim & Buttons) -->
+  <section class="hero-gradient pt-32 pb-24 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
+   <!-- zusätzlicher transparenter orangener Verlauf -->
+   <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent"></div>
+
+   <div class="max-w-7xl mx-auto relative">
+    <div class="text-center max-w-4xl mx-auto">
+     <!-- kleines Badge mit Social Proof -->
+     <div class="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
+      <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      Über 2000 erfolgreiche Umzüge
+     </div>
+
+     <!-- Hauptüberschrift (wird per JS teilweise ersetzt) -->
+     <h1 id="main-headline" class="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+       Professionelle<br>
+       <span class="bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">Möbelaufzüge</span>
+     </h1>
+
+     <!-- Untertitel / Claim -->
+     <p id="tagline" class="text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
+       Ihr Partner für stressfreie Umzüge und Entrümpelungen – schnell, sicher und zuverlässig. Von Profis für Profis.
+     </p>
+
+     <!-- Call-to-Action Buttons -->
+     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      <!-- Haupt-CTA-Button -->
+      <button id="cta-button" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+        Kostenlos beraten lassen
+      </button>
+
+      <!-- WhatsApp-CTA-Button -->
+      <button id="hero-whatsapp-btn" class="whatsapp-btn text-white px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-3">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+       </svg>
+       <span>WhatsApp Chat</span>
+      </button>
+     </div>
+
+     <!-- Statistiken (Unter dem Hero) -->
+     <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="stats-counter">
+       <div class="text-4xl font-bold text-orange-400 mb-2">
+        24/7
+       </div>
+       <div class="text-gray-300">
+        Erreichbar
+       </div>
+      </div>
+      <div class="stats-counter">
+       <div class="text-4xl font-bold text-orange-400 mb-2">
+        100%
+       </div>
+       <div class="text-gray-300">
+        Versichert
+       </div>
+      </div>
+      <div class="stats-counter">
+       <div class="text-4xl font-bold text-orange-400 mb-2">
+        5+
+       </div>
+       <div class="text-gray-300">
+        Jahre
+       </div>
+      </div>
+      <div class="stats-counter">
+       <div class="text-4xl font-bold text-orange-400 mb-2">
+        2000+
+       </div>
+       <div class="text-gray-300">
+        Kunden
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Services Section (Leistungen) -->
+  <section id="services" class="py-24 service-grid">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+     <h2 id="services-heading" class="text-5xl font-bold text-gray-900 mb-6">Was wir für Sie tun</h2>
+     <p class="text-2xl text-gray-600 max-w-3xl mx-auto">
+       Professioneller Umzugs- und Entrümpelungsservice – individuell geplant und perfekt auf Ihre Bedürfnisse abgestimmt.
+     </p>
+    </div>
+
+    <!-- Drei Service-Karten -->
+    <div class="grid lg:grid-cols-3 gap-10">
+     <!-- Service 1: Möbelaufzug mieten -->
+     <div class="card-3d bg-white p-10 rounded-3xl shadow-xl">
+      <div class="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
+       <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+       </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Möbelaufzug mieten</h3>
+      <p class="text-gray-600 leading-relaxed text-center mb-8">
+       Moderne Außenaufzüge für den sicheren Transport schwerer Möbel bis ins oberste Stockwerk – professionell, zuverlässig und perfekt für enge Treppenhäuser. Bei längerer Nutzung bieten wir einen günstigen Tagespreis an. Preisvorteile und individuelle Angebote erhalten Sie auf Anfrage.
+      </p>
+      <div class="text-center">
+       <div class="text-3xl font-bold text-orange-600 mb-2">
+        Ab 90 €
+       </div>
+       <div class="text-gray-500">
+        pro Stunde
+       </div>
+       <button
+      id="service-lift-btn"
+      class="mt-6 w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4 rounded-xl font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300">
+      Jetzt anfragen
+    </button>
+
+      </div>
+     </div>
+
+     <!-- Service 2: Komplettservice -->
+     <div class="card-3d bg-white p-10 rounded-3xl shadow-xl">
+      <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
+       <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+       </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Komplettservice</h3>
+      <p class="text-gray-600 leading-relaxed text-center mb-8">
+        Von der Planung bis zur Durchführung – wir übernehmen Ihren gesamten Umzug und Ihre Entrümpelung mit erfahrenen Profis. Zuverlässig, strukturiert und perfekt auf Ihre Bedürfnisse abgestimmt, damit Ihr Neubeginn stressfrei und effizient gelingt.
+      </p>
+      <div class="text-center">
+       <div class="text-3xl font-bold text-blue-600 mb-2">
+        Individuell
+       </div>
+       <div class="text-gray-500">
+        nach Aufwand
+       </div>
+       <button
+        id="service-full-btn"
+        class="mt-6 w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
+        Kostenvoranschlag
+      </button>
+      </div>
+     </div>
+
+     <!-- Service 3: Express-Service -->
+     <div class="card-3d bg-white p-10 rounded-3xl shadow-xl">
+      <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
+       <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+       </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Express-Service</h3>
+      <p class="text-gray-600 leading-relaxed text-center mb-8">
+       Kurzfristige Termine und schnelle Abwicklung für eilige Umzüge: Unser Express-Umzugsservice ist oft bereits am nächsten Tag verfügbar – flexibel, zuverlässig und perfekt für dringende Umzüge.
+      </p>
+      <div class="text-center">
+       <div class="text-3xl font-bold text-green-600 mb-2">
+        24h
+       </div>
+       <div class="text-gray-500">
+        Verfügbarkeit
+       </div>
+       <button
+      id="service-express-btn"
+      class="mt-6 w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300">
+      Sofort buchen
+    </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Benefits Section (Vorteile) -->
+  <section id="benefits" class="py-24 bg-white">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+     <h2 id="benefits-heading" class="text-5xl font-bold text-gray-900 mb-6">Warum Orangelift?</h2>
+     <p class="text-2xl text-gray-600 max-w-3xl mx-auto">
+Diese Vorteile machen uns zum idealen Partner für Ihren Umzug und Ihre Entrümpelung – professionell, zuverlässig und perfekt auf Ihre Anforderungen abgestimmt.     </p>
+    </div>
+
+    <!-- Vier Vorteilskarten -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <!-- Vorteil 1 -->
+     <div class="contact-card p-8 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+      <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4">5+ Jahre Erfahrung</h3>
+      <p class="text-gray-600">
+Langjährige Expertise im professionellen Möbeltransport, umfassenden Umzugsservice und zuverlässiger Entrümpelung – sicher, effizient und durchgeführt von erfahrenen Spezialisten.      </p>
+     </div>
+
+     <!-- Vorteil 2 -->
+     <div class="contact-card p-8 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+      <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4">100% Versichert</h3>
+      <p class="text-gray-600">
+Vollumfänglicher Schutz für Ihre wertvollen Möbel und Gegenstände – professionell gesichert für einen sicheren, stressfreien Umzug.      </p>
+     </div>
+
+     <!-- Vorteil 3 -->
+     <div class="contact-card p-8 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+      <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4">Blitzschnell</h3>
+      <p class="text-gray-600">
+Termine oft schon am nächsten Tag – ideal für eilige und kurzfristige Umzüge. Unser Express-Umzugsservice sorgt für schnelle, flexible und zuverlässige Abläufe.      </p>
+     </div>
+
+     <!-- Vorteil 4 -->
+     <div class="contact-card p-8 rounded-2xl text-center hover:shadow-xl transition-all duration-300">
+      <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+       <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-4">Faire Preise</h3>
+      <p class="text-gray-600">
+Transparente Kosten ohne versteckte Gebühren – faire Preise für Ihren Umzug und Ihre Entrümpelung, ganz ohne böse Überraschungen.      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Contact Section (Kontakt + Formular) -->
+  <section id="contact" class="py-24 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+     <h2 id="contact-heading" class="text-5xl font-bold text-gray-900 mb-6">Jetzt kontaktieren</h2>
+     <p class="text-2xl text-gray-600 max-w-3xl mx-auto">
+       Lassen Sie uns über Ihr Umzugsprojekt sprechen – wir beraten Sie gerne kostenlos
+     </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-12">
+     <!-- Linke Spalte: Kontaktmethoden (Telefon, WhatsApp, E-Mail) -->
+     <div class="lg:col-span-1 space-y-8">
+      <!-- Telefon-Karte -->
+      <div class="contact-card p-8 rounded-2xl shadow-lg">
+       <div class="flex items-start space-x-4">
+        <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="font-bold text-gray-900 mb-2 text-lg">Telefon</h3>
+         <!-- Telefonnummer wird per JS überschrieben -->
+         <p id="phone" class="text-gray-600 text-xl font-semibold">+491792090632</p>
+         <p class="text-sm text-gray-500 mt-1">Kostenlose Hotline</p>
+        </div>
+       </div>
+      </div>
+
+      <!-- WhatsApp-Karte -->
+      <div class="contact-card p-8 rounded-2xl shadow-lg">
+       <div class="flex items-start space-x-4">
+        <div class="w-14 h-14 whatsapp-btn rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+         <svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24">
+           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="font-bold text-gray-900 mb-2 text-lg">WhatsApp</h3>
+         <!-- WhatsApp-Nummer wird per JS überschrieben -->
+         <p id="whatsapp-display" class="text-gray-600 text-xl font-semibold">+49 151 12345678</p>
+         <!-- Button für WhatsApp-Chat -->
+         <button id="contact-whatsapp-btn" class="mt-3 whatsapp-btn text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 text-sm">
+          Chat starten
+         </button>
+        </div>
+       </div>
+      </div>
+
+      <!-- E-Mail-Karte -->
+      <div class="contact-card p-8 rounded-2xl shadow-lg">
+       <div class="flex items-start space-x-4">
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="font-bold text-gray-900 mb-2 text-lg">E-Mail</h3>
+         <!-- E-Mail wird per JS überschrieben -->
+         <p id="email" class="text-gray-600 text-xl font-semibold">orangelift6@gmail.com</p>
+         <p class="text-sm text-gray-500 mt-1">Antwort innerhalb 24h</p>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <!-- Rechte Spalte: Kontaktformular -->
+     <div class="lg:col-span-2">
+      <div class="bg-white p-10 rounded-3xl shadow-xl">
+       <h3 class="text-3xl font-bold text-gray-900 mb-8">Kostenvoranschlag anfordern</h3>
+
+       <!-- Kontaktformular -->
+      <!-- Kontaktformular -->
+<form 
+  id="quote-form" 
+  class="space-y-6"
+  action="https://formspree.io/f/mblqqlnn"
+  method="POST"
+>
+  <!-- Betreff der Mail -->
+  <input type="hidden" name="_subject" value="Neue Anfrage über das Orangelift Kontaktformular">
+  <!-- Captcha bei Formspree deaktivieren (optional, je nach Plan) -->
+  <input type="hidden" name="_captcha" value="false">
+  <!-- Optional: eigene Danke-Seite nach dem Absenden -->
+  <!-- <input type="hidden" name="_redirect" value="https://deine-domain.de/danke.html"> -->
+
+  <!-- Vorname & Nachname -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <label for="firstName" class="block text-sm font-semibold text-gray-700 mb-3">Vorname *</label>
+      <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-lg">
+    </div>
+    <div>
+      <label for="lastName" class="block text-sm font-semibold text-gray-700 mb-3">Nachname *</label>
+      <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-lg">
+    </div>
+  </div>
+
+  <!-- E-Mail & Telefon -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <label for="email-form" class="block text-sm font-semibold text-gray-700 mb-3">E-Mail *</label>
+      <input type="email" id="email-form" name="email" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-lg">
+    </div>
+    <div>
+      <label for="phone-form" class="block text-sm font-semibold text-gray-700 mb-3">Telefon</label>
+      <input type="tel" id="phone-form" name="phone" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-lg">
+    </div>
+  </div>
+
+  <!-- Service-Auswahl -->
+  <div>
+    <label for="service" class="block text-sm font-semibold text-gray-700 mb-3">Gewünschter Service</label>
+    <select id="service" name="service" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-lg">
+      <option value="">Bitte wählen Sie einen Service</option>
+      <option value="Möbelaufzug mieten">Möbelaufzug mieten</option>
+      <option value="Komplettservice">Komplettservice</option>
+      <option value="Express-Service">Express-Service</option>
+      <option value="Entrümpelung">Entrümpelung</option>
+      <option value="Kostenlose Beratung">Kostenlose Beratung</option>
+    </select>
+  </div>
+
+  <!-- Nachricht -->
+  <div>
+    <label for="message" class="block text-sm font-semibold text-gray-700 mb-3">Ihre Nachricht</label>
+    <textarea id="message" name="message" rows="5" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-lg" placeholder="Beschreiben Sie Ihr Umzugsprojekt, gewünschte Termine oder besondere Anforderungen..."></textarea>
+  </div>
+
+  <!-- Buttons: Formular senden & via WhatsApp -->
+  <div class="flex flex-col sm:flex-row gap-4">
+    <!-- Submit-Button (Formular absenden) -->
+    <button type="submit" class="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-4 px-8 rounded-xl hover:from-orange-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-300 shadow-lg text-lg">
+      Kostenvoranschlag anfordern
+    </button>
+
+    <!-- WhatsApp-Button im Formular -->
+    <button type="button" id="form-whatsapp-btn" class="flex-1 whatsapp-btn text-white font-bold py-4 px-8 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg flex items-center justify-center space-x-2">
+      <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+      </svg>
+      <span>Via WhatsApp</span>
+    </button>
+  </div>
+</form>
+
+
+       <!-- Erfolgsmeldung (Optional – aktuell nicht automatisch genutzt, bleibt aber im Layout) -->
+       <div id="form-success" class="hidden mt-8 p-6 bg-green-50 border-2 border-green-200 text-green-800 rounded-xl">
+        <div class="flex items-center">
+         <svg class="w-6 h-6 mr-3 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg>
+         <div>
+          <h4 class="font-semibold">Vielen Dank für Ihre Anfrage!</h4>
+          <p class="text-sm">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-12">
+     <!-- Footer: Firmeninfo -->
+     <div class="md:col-span-2">
+      <div class="flex items-center space-x-4 mb-6">
+       <div class="gradient-border">
+        <div class="gradient-border-content w-12 h-12 flex items-center justify-center bg-gray-900">
+         <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+         </svg>
+        </div>
+       </div>
+       <span class="text-2xl font-bold">Orangelift</span>
+      </div>
+      <p class="text-gray-400 mb-6 max-w-md text-lg leading-relaxed">
+Ihr zuverlässiger Partner für professionelle Möbelaufzüge und stressfreie Umzüge in ganz Deutschland – seit über 5 Jahren erfolgreich für unsere Kunden im Einsatz.      </p>
+
+      <!-- Social Icons -->
+      
+       
+       <div class="w-10 h-10 whatsapp-btn rounded-xl flex items-center justify-center hover:shadow-lg transition-all cursor-pointer">
+        <!-- WhatsApp Icon -->
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+        </svg>
+       </div>
+      </div>
+     </div>
+
+     <!-- Footer: Services-Liste -->
+     <div>
+      <h3 class="font-bold mb-6 text-lg">Services</h3>
+      <ul class="space-y-3 text-gray-400">
+       <li><a href="#" class="hover:text-orange-400 transition-colors">Möbelaufzug mieten</a></li>
+       <li><a href="#" class="hover:text-orange-400 transition-colors">Komplettservice</a></li>
+       <li><a href="#" class="hover:text-orange-400 transition-colors">Express-Service</a></li>
+        <li><a href="#" class="hover:text-orange-400 transition-colors">Entrümpelung</a></li>
+       <li><a href="#" class="hover:text-orange-400 transition-colors">Kostenlose Beratung</a></li>
+       <li><a href="#" class="hover:text-orange-400 transition-colors">Notfall-Service</a></li>
+      </ul>
+     </div>
+
+     <!-- Footer: Kontakt-Infos -->
+     <div>
+      <h3 class="font-bold mb-6 text-lg">Kontakt</h3>
+      <ul class="space-y-3 text-gray-400">
+       <li class="flex items-center">
+        <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        +491792090632
+       </li>
+       <li class="flex items-center">
+        <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        orangelift6@gmail.com
+       </li>
+       <li class="flex items-center">
+        <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106" />
+        </svg>
+        +491792090632
+       </li>
+       <li class="text-sm">Mo-Fr: 8:00-20:00 Uhr</li>
+       <li class="text-sm">Sa-So: 10:00-18:00 Uhr</li>
+      </ul>
+     </div>
+    </div>
+
+    <!-- Footer: ganz unten -->
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+     <p>
+    © 2019 Orangelift. Alle Rechte vorbehalten.
+      | <a href="#" class="hover:text-orange-400 transition-colors">Impressum</a>
+      | <a href="#" class="hover:text-orange-400 transition-colors">Datenschutz</a>
+      | <a href="#" class="hover:text-orange-400 transition-colors">AGB</a>
+     </p>
+    </div>
+   </div>
+  </footer>
+
+    <!-- Haupt-JavaScript: Config, WhatsApp-Funktion, Form-Handling, etc. -->
+  <script>
+        // Standard-Einstellungen für Texte, Farben und Kontaktinfos
+        const defaultConfig = {
+            company_name: "Orangelift",
+            main_headline: "Professionelle Möbelaufzüge",
+            tagline: "Ihr Partner für stressfreie Umzüge und Entrümpelungen – schnell, sicher und zuverlässig. Von Profis für Profis.",
+            cta_text: "Kostenlos beraten lassen",
+            services_heading: "Was wir für Sie tun",
+            benefits_heading: "Warum Orangelift?",
+            contact_heading: "Jetzt kontaktieren",
+            phone: "+491792090632",
+            email: "orangelift6@gmail.com",
+            whatsapp_number: "4917902090632",
+            whatsapp_message: "Hallo! Ich bräuchte Unterstützung beim Umzug und würde gern wissen, welche Optionen Sie anbieten. Vielen Dank!",
+            primary_color: "#f97316",
+            secondary_color: "#ea580c",
+            background_color: "#ffffff",
+            text_color: "#111827",
+            accent_color: "#25D366"
+        };
+
+        // Diese Funktion setzt Texte & Farben in die Seite anhand von config
+        async function render(config) {
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+
+            // Texte in den HTML-Elementen aktualisieren
+            document.getElementById('company-name').textContent = config.company_name || defaultConfig.company_name;
+
+            // Hauptheadline, "Möbelaufzüge" wird farblich hervorgehoben
+            document.getElementById('main-headline').innerHTML = (config.main_headline || defaultConfig.main_headline)
+                .replace('Möbelaufzüge', '<span class="bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">Möbelaufzüge</span>');
+
+            document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+            document.getElementById('cta-button').textContent = config.cta_text || defaultConfig.cta_text;
+            document.getElementById('services-heading').textContent = config.services_heading || defaultConfig.services_heading;
+            document.getElementById('benefits-heading').textContent = config.benefits_heading || defaultConfig.benefits_heading;
+            document.getElementById('contact-heading').textContent = config.contact_heading || defaultConfig.contact_heading;
+            document.getElementById('phone').textContent = config.phone || defaultConfig.phone;
+            document.getElementById('email').textContent = config.email || defaultConfig.email;
+            document.getElementById('whatsapp-display').textContent = config.whatsapp_number || defaultConfig.whatsapp_number;
+
+            // Hintergrundverläufe (bg-gradient-to-br) mit der Primär-/Sekundärfarbe überschreiben
+            const gradientElements = document.querySelectorAll('.bg-gradient-to-br');
+            gradientElements.forEach(el => {
+                if (el.classList.contains('from-orange-500')) {
+                    el.style.background = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+                }
+            });
+
+            // Button-Verläufe (bg-gradient-to-r) für orange Buttons anpassen
+            const gradientButtons = document.querySelectorAll('.bg-gradient-to-r');
+            gradientButtons.forEach(btn => {
+                if (btn.classList.contains('from-orange-500')) {
+                    btn.style.background = `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`;
+                }
+            });
+
+            // WhatsApp-Buttons mit Accent-Farbe überschreiben
+            const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+            whatsappButtons.forEach(btn => {
+                btn.style.background = `linear-gradient(135deg, ${accentColor}, #128C7E)`;
+            });
+        }
+
+        // Öffnet WhatsApp mit der konfigurierten Nummer & Nachricht
+        function openWhatsApp() {
+            const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+            const number = (config.whatsapp_number || defaultConfig.whatsapp_number).replace(/\s+/g, '');
+            const message = encodeURIComponent(config.whatsapp_message || defaultConfig.whatsapp_message);
+            const whatsappUrl = `https://wa.me/${number}?text=${message}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Öffnet Telefon-App mit der konfigurierten Telefonnummer
+        function openPhone() {
+            const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+            const rawPhone = config.phone || defaultConfig.phone;
+            const phone = rawPhone.replace(/\s+/g, '');
+            window.location.href = `tel:${phone}`;
+        }
+
+        // Diese Funktion wird genutzt, um einzustellen, welche Farben vom Editor bearbeitet werden können
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ secondary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        // Welche Text-Felder im Editor bearbeitbar sind
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["company_name", config.company_name || defaultConfig.company_name],
+                ["main_headline", config.main_headline || defaultConfig.main_headline],
+                ["tagline", config.tagline || defaultConfig.tagline],
+                ["cta_text", config.cta_text || defaultConfig.cta_text],
+                ["services_heading", config.services_heading || defaultConfig.services_heading],
+                ["benefits_heading", config.benefits_heading || defaultConfig.benefits_heading],
+                ["contact_heading", config.contact_heading || defaultConfig.contact_heading],
+                ["phone", config.phone || defaultConfig.phone],
+                ["email", config.email || defaultConfig.email],
+                ["whatsapp_number", config.whatsapp_number || defaultConfig.whatsapp_number],
+                ["whatsapp_message", config.whatsapp_message || defaultConfig.whatsapp_message]
+            ]);
+        }
+
+        // Mobile Menü ein-/ausklappen
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scroll für Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // CTA-Button "Kostenlos beraten lassen" scrollt zum Kontaktbereich
+        const ctaButton = document.getElementById('cta-button');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', function () {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+                // Service-Buttons im Leistungsbereich
+        const contactSection = document.getElementById('contact');
+        const serviceSelect = document.getElementById('service');
+
+        // Service 1: Möbelaufzug mieten -> scrollt zum Formular und wählt Service vor
+        const serviceLiftBtn = document.getElementById('service-lift-btn');
+        if (serviceLiftBtn && contactSection) {
+            serviceLiftBtn.addEventListener('click', function () {
+                if (serviceSelect) {
+                    serviceSelect.value = "Möbelaufzug mieten";
+                }
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        }
+
+        // Service 2: Komplettservice -> scrollt zum Formular und wählt Service vor
+        const serviceFullBtn = document.getElementById('service-full-btn');
+        if (serviceFullBtn && contactSection) {
+            serviceFullBtn.addEventListener('click', function () {
+                if (serviceSelect) {
+                    serviceSelect.value = "Komplettservice";
+                }
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        }
+
+        // Service 3: Express-Service -> sofort WhatsApp öffnen
+        const serviceExpressBtn = document.getElementById('service-express-btn');
+        if (serviceExpressBtn) {
+            serviceExpressBtn.addEventListener('click', openWhatsApp);
+        }
+
+        // Telefon-/Anrufen-Buttons verbinden
+        const navCallBtn = document.getElementById('nav-call-btn');
+        if (navCallBtn) navCallBtn.addEventListener('click', openPhone);
+
+        const mobileCallBtn = document.getElementById('mobile-call-btn');
+        if (mobileCallBtn) mobileCallBtn.addEventListener('click', openPhone);
+
+        // Optional: Klick auf Telefonnummer in der Karte ruft ebenfalls an
+        const phoneText = document.getElementById('phone');
+        if (phoneText) phoneText.addEventListener('click', openPhone);
+
+        // WhatsApp-Buttons verbinden
+        document.getElementById('whatsapp-float-btn').addEventListener('click', openWhatsApp);
+        document.getElementById('nav-whatsapp-btn').addEventListener('click', openWhatsApp);
+        document.getElementById('mobile-whatsapp-btn').addEventListener('click', openWhatsApp);
+        document.getElementById('hero-whatsapp-btn').addEventListener('click', openWhatsApp);
+        document.getElementById('contact-whatsapp-btn').addEventListener('click', openWhatsApp);
+        document.getElementById('form-whatsapp-btn').addEventListener('click', openWhatsApp);
+
+        // Initialisierung des Element SDK (falls vorhanden)
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                render,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Erste Darstellung der Seite mit defaultConfig
+        render(defaultConfig);
+  </script>
+
+
+  <!-- Cloudflare/Challenge Script (vom Anbieter eingebunden, nicht relevant für deine Logik) -->
+  <script>
+    (function(){
+      function c(){
+        var b=a.contentDocument||a.contentWindow.document;
+        if(b){
+          var d=b.createElement('script');
+          d.innerHTML="window.__CF$cv$params={r:'99f23dae24f5c7db',t:'MTc2MzI0NjMyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+          b.getElementsByTagName('head')[0].appendChild(d)
+        }
+      }
+      if(document.body){
+        var a=document.createElement('iframe');
+        a.height=1;
+        a.width=1;
+        a.style.position='absolute';
+        a.style.top=0;
+        a.style.left=0;
+        a.style.border='none';
+        a.style.visibility='hidden';
+        document.body.appendChild(a);
+        if('loading'!==document.readyState)c();
+        else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
+        else{
+          var e=document.onreadystatechange||function(){};
+          document.onreadystatechange=function(b){
+            e(b);
+            'loading'!==document.readyState&&(document.onreadystatechange=e,c())
+          }
+        }
+      }
+    })();
+  </script>
+ </body>
+</html>
