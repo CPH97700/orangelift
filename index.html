@@ -7,6 +7,15 @@
   <title>Orangelift – Möbelaufzug mieten, Umzüge & Entrümpelung in Deutschland</title>
   <meta name="description" content="Orangelift – Ihr Spezialist für Möbelaufzüge, professionelle Umzüge und Entrümpelungen. Schnelle Termine, faire Preise und über 5 Jahre Erfahrung. Jetzt Möbelaufzug mieten oder Umzug anfragen.">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17772996783"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17772996783');
+  </script>
+
   <!-- Element SDK (Editor/Builder, der diese Seite wohl einbettet) -->
   <script src="/_sdk/element_sdk.js"></script>
 
@@ -1057,6 +1066,7 @@ Ihr zuverlässiger Partner für professionelle Möbelaufzüge und stressfreie Um
 </script>
 
 <!-- AJAX-Handling für das Kontaktformular (Formspree, ohne Weiterleitung) -->
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("quote-form");
@@ -1077,6 +1087,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
+        // Google Ads Conversion-Tracking (Kontakt-Conversion)
+        if (typeof gtag === "function") {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17772996783/BYNTCInYqsobEK_R6ZpC'
+          });
+        }
+
         if (successBox) successBox.classList.remove("hidden");
         form.reset();
       } else {
@@ -1088,6 +1105,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+
 
  </body>
 </html>
